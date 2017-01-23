@@ -1,0 +1,16 @@
+parameters:
+# authorrelation
+    author_relation_types.authorrelation.class: xrow\AuthorRelationBundle\FieldType\AuthorRelation\Type
+    author_relation_types.authorrelation.converter.class: xrow\AuthorRelationBundle\FieldType\AuthorRelation\AuthorRelationConverter
+
+services:
+# authorrelation
+    author_relation_types.authorrelation:
+        class: %author_relation_types.authorrelation.class%
+        parent: ezpublish.fieldType
+        tags:
+            - {name: ezpublish.fieldType, alias: authorrelation}
+    author_relation_types.authorrelation.converter:
+        class: %author_relation_types.authorrelation.converter.class%
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: authorrelation}
